@@ -4,6 +4,17 @@
         <title>{{title}} - MicroBlog</title>
     </head>
     <body>
+    {% if user %}
         <h1>Hello, {{ user.username }}!</h1>
+    {% else %}
+        <p>Hello, you have not signed in</p>
+    {% endif %}
+        
+    {% for post in posts %}
+        <div>
+            <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+        </div>  
+    {% endfor %}
+
     </body>
 </html>
